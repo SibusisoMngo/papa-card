@@ -175,6 +175,61 @@
     box-shadow: 0 8px 20px -6px rgba(140,106,55,0.6), inset 0 2px 3px rgba(255,255,255,0.3);
   }
 
+  .portrait {
+    margin: 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .portrait-shell {
+    background: rgba(176,139,79,0.1);
+    border: 1px solid rgba(176,139,79,0.22);
+    border-radius: 24px;
+    padding: 8px;
+    box-shadow: 0 30px 60px -34px rgba(43,33,24,0.45);
+    transform: rotate(-1.4deg);
+    transition: transform 0.7s var(--ease);
+  }
+  .portrait-shell:hover { transform: rotate(0deg) scale(1.015); }
+  .portrait-core {
+    position: relative;
+    width: clamp(180px, 52vw, 280px);
+    aspect-ratio: 4 / 5;
+    border-radius: 17px;
+    overflow: hidden;
+    background: radial-gradient(circle at 35% 30%, var(--rose), var(--gold-deep));
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.4);
+  }
+  .portrait-core img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.92) contrast(1.02);
+  }
+  .portrait-fallback {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--cream);
+    font-size: 38px;
+    letter-spacing: 0.02em;
+  }
+  .portrait-core.no-img .portrait-fallback { display: flex; }
+  .portrait figcaption {
+    margin-top: 18px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: clamp(15px, 2.4vw, 18px);
+    color: var(--soft-ink);
+    letter-spacing: 0.01em;
+  }
+
   .card .greeting {
     font-family: 'Fraunces', serif;
     font-weight: 300;
@@ -268,6 +323,8 @@
     .card { border-radius: 19px; padding: 30px 24px; }
 
     .card .seal { width: 42px; height: 42px; font-size: 18px; top: 22px; right: 22px; }
+    .portrait { margin-bottom: 32px; }
+    .portrait-shell { transform: rotate(0deg); }
     .card .greeting { margin-bottom: 24px; }
     .card p.body { line-height: 1.8; margin-bottom: 18px; }
     .divider { margin: 28px 0; }
@@ -296,17 +353,28 @@
       <div class="shell reveal">
         <div class="card">
           <div class="seal">P</div>
+
+          <figure class="portrait reveal">
+            <div class="portrait-shell">
+              <div class="portrait-core">
+                <img src="papa.jpg" alt="Papa" onerror="this.style.display='none';this.parentNode.classList.add('no-img');" />
+                <span class="portrait-fallback">Papa</span>
+              </div>
+            </div>
+            <figcaption>The strongest man I know</figcaption>
+          </figure>
+
           <p class="greeting reveal">Dear Papa,</p>
 
-          <p class="body reveal d1">You are a quiet man. A soldier in how you carry yourself, disciplined, steady, never one for big speeches or asking for thanks. But we have always known you love us. We see it in what you do, every single day, even when you think nobody is watching.</p>
+          <p class="body reveal d1">You carry yourself like the soldier you were. Disciplined, steady, strong in a way that never needed to be loud. You do not make big speeches about love or ask for thanks, but we have always known, because we see it in how you hold yourself and in everything you do for us.</p>
 
           <div class="divider reveal d1"><span class="rule"></span><span class="dot">&#10022;</span><span class="rule"></span></div>
 
-          <p class="body reveal d2">We did not have much, and you never pretended otherwise. But you took the little we had and you stretched it, you made a way, you went without so we would not have to. That is the kind of love that does not need words. We felt it in every plate of food and every problem you quietly fixed before we even knew it was there.</p>
+          <p class="body reveal d2">The army taught you discipline, and you brought that discipline home and built our whole lives on it. The early mornings. The standards you held. The way you never cut corners and never gave up, no matter how heavy things got. That strength became the ground the rest of us stood on.</p>
 
-          <p class="body soft reveal d2">You taught us that love is not about how much money is in your hand. It is about how hard you are willing to try with whatever you have. You tried your best for us, always, and your best was more than enough.</p>
+          <p class="body soft reveal d2">We did not have much, but you took the little there was and you stretched it, you made a way, you went without so we would not have to. You showed me that real strength is not about money or about being loud. It is the quiet discipline of getting up every day and trying your best for the people you love.</p>
 
-          <p class="body reveal d3">I notice it all now. The early starts, the tiredness you hid, the discipline you carried home from your soldier days and quietly built our lives on. You kept going for us, the way you always have. Thank you for showing up with your actions when words were not your thing. We see you, Papa, and we love you for it.</p>
+          <p class="body reveal d3">That is what I value most about you, Papa. Your discipline. Your strength. The example you set just by being who you are. I am proud to be your son, and I carry everything you taught me with me. Thank you for showing up with your actions when words were not your thing. We see you, and we love you for it.</p>
 
           <p class="signoff reveal d3">Love you always,<small>From Sibusiso Junior Mngomezulu</small></p>
         </div>
