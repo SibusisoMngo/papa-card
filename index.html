@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Father's Day, Papa</title>
+<meta name="description" content="A little card for the best one." />
+<meta property="og:title" content="Happy Father's Day, Papa" />
+<meta property="og:description" content="A little card for the best one." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #FDFBF7;
+    --paper: #F7F2E9;
+    --ink: #2B2118;
+    --soft-ink: #6B5D4F;
+    --gold: #B08B4F;
+    --gold-deep: #8C6A37;
+    --rose: #C98C7A;
+    --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* film grain */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* warm light orbs */
+  .glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+  .glow.one { width: 480px; height: 480px; top: -160px; right: -120px; background: radial-gradient(circle, rgba(176,139,79,0.45), transparent 70%); }
+  .glow.two { width: 520px; height: 520px; bottom: -200px; left: -160px; background: radial-gradient(circle, rgba(201,140,122,0.4), transparent 70%); }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* hero */
+  .hero {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gold-deep);
+    background: rgba(176,139,79,0.1);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.5);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(56px, 13vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 .script {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold-deep);
+    font-size: clamp(64px, 15vw, 150px);
+    margin-top: 4px;
+  }
+
+  .hero p.sub {
+    color: var(--soft-ink);
+    font-size: clamp(15px, 2.4vw, 19px);
+    max-width: 30ch;
+    line-height: 1.6;
+  }
+
+  .scroll-hint {
+    margin-top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--soft-ink);
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .scroll-hint span.line {
+    width: 1px;
+    height: 38px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: drip 2.4s var(--ease) infinite;
+  }
+  @keyframes drip {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    40% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    60% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
+
+  /* letter card */
+  .letter-section { padding: 80px 0 120px; }
+
+  .shell {
+    background: rgba(176,139,79,0.07);
+    border: 1px solid rgba(176,139,79,0.18);
+    border-radius: 36px;
+    padding: 10px;
+  }
+  .card {
+    background: var(--paper);
+    border-radius: 27px;
+    padding: clamp(36px, 6vw, 72px);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.7), 0 40px 80px -40px rgba(43,33,24,0.25);
+    position: relative;
+  }
+  .card .seal {
+    position: absolute;
+    top: clamp(24px, 5vw, 48px);
+    right: clamp(24px, 5vw, 48px);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--rose), var(--gold-deep));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--cream);
+    font-size: 22px;
+    box-shadow: 0 8px 20px -6px rgba(140,106,55,0.6), inset 0 2px 3px rgba(255,255,255,0.3);
+  }
+
+  .card .greeting {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.1;
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+
+  .card p.body {
+    font-size: clamp(16px, 2.3vw, 19px);
+    line-height: 1.85;
+    color: var(--ink);
+    margin-bottom: 22px;
+    max-width: 54ch;
+  }
+  .card p.body.soft { color: var(--soft-ink); }
+
+  .card .signoff {
+    margin-top: 40px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: clamp(20px, 3vw, 26px);
+    color: var(--gold-deep);
+  }
+  .card .signoff small {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-style: normal;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--soft-ink);
+    margin-top: 8px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 36px 0;
+    color: var(--gold);
+  }
+  .divider span.rule { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(176,139,79,0.4), transparent); }
+  .divider span.dot { font-size: 13px; }
+
+  footer {
+    text-align: center;
+    padding: 40px 0 60px;
+    color: var(--soft-ink);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+  footer .heart { color: var(--rose); }
+
+  /* reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(8px);
+    transition: opacity 1s var(--ease), transform 1s var(--ease), filter 1s var(--ease);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); filter: blur(0); }
+  .reveal.d1 { transition-delay: 0.08s; }
+  .reveal.d2 { transition-delay: 0.16s; }
+  .reveal.d3 { transition-delay: 0.24s; }
+  .reveal.d4 { transition-delay: 0.32s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; filter: none; transition: none; }
+    .scroll-hint span.line { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <div class="wrap">
+    <section class="hero">
+      <span class="eyebrow reveal in">21 June 2026</span>
+      <h1 class="reveal in d1">Happy Father's Day<span class="script">Papa</span></h1>
+      <p class="sub reveal in d2">A small card for the one who has always been the steady ground under my feet.</p>
+      <div class="scroll-hint reveal in d3">
+        <span>Read on</span>
+        <span class="line"></span>
+      </div>
+    </section>
+
+    <section class="letter-section">
+      <div class="shell reveal">
+        <div class="card">
+          <div class="seal">P</div>
+          <p class="greeting reveal">Dear Papa,</p>
+
+          <p class="body reveal d1">I do not say it enough, so today it gets said properly. Thank you. For the early mornings, the long days, and all the quiet ways you carried things so the rest of us never had to feel the weight.</p>
+
+          <div class="divider reveal d1"><span class="rule"></span><span class="dot">&#10022;</span><span class="rule"></span></div>
+
+          <p class="body reveal d2">You taught me what showing up looks like. Not with big speeches, but by being there, every single time, without making a thing of it. So much of who I am came from watching you, and I am still learning from you.</p>
+
+          <p class="body soft reveal d2">The patience. The humour. The way you make a hard thing look simple and a small moment feel like it matters. I notice all of it now in a way I could not when I was younger.</p>
+
+          <p class="body reveal d3">Whatever I build, wherever I go, I carry you with me. You are my first hero and still my favourite one.</p>
+
+          <p class="signoff reveal d3">Love you always,<small>Your kid</small></p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="reveal">Made with <span class="heart">&#9829;</span> for the best one</footer>
+  </div>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal:not(.in)').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
